@@ -1,0 +1,6 @@
+@Gamestorev3.Server_HostAddress = http://localhost:5097
+
+GET {{Gamestorev3.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
