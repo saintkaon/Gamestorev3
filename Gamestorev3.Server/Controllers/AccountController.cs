@@ -41,6 +41,12 @@ namespace Gamestorev3.Server.Controllers
                 return user;
 
             
+            return new UserDTO
+            {
+                EmailAddress = rdo.Email,
+                NickName = rdo.nickname,
+                Token = _token.CreateToken(user)
+            };
           
         }
         public async Task<bool> IsExist(string email)
