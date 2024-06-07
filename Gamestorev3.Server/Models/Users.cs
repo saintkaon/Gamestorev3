@@ -13,6 +13,7 @@ namespace Gamestore.Models
         
         public List<UserPhotos> Photos { get; set; }
         public List<Orders> Orders { get; set; }
+        public List<Games> Games { get; set; }
        
 
         

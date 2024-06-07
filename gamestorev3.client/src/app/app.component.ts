@@ -3,10 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 interface Users {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+  EmailAddress: string;
+  Password: string;
+  Nickname: string;
+  
 }
 
 @Component({
@@ -17,6 +17,8 @@ interface Users {
 
 export class AppComponent implements OnInit {
   public users: Users[] = [];
+  model: any = {};
+  loggedIn=false;
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +33,7 @@ export class AppComponent implements OnInit {
       complete: () => console.log("Complete")
 
     })
+   
 
     const title = 'gamestorev3.client';
   }

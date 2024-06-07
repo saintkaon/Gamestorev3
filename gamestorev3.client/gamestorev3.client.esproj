@@ -9,5 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Bootstrap\" />
+    <Folder Include="src\app\_models\" />
+    <Folder Include="src\app\_services\" />
   </ItemGroup>
 </Project>

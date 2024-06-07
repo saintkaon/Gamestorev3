@@ -17,7 +17,7 @@ namespace Gamestorev3.Server.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.5")
+                .HasAnnotation("ProductVersion", "8.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -216,9 +216,9 @@ namespace Gamestorev3.Server.Migrations
                         .IsRequired();
 
                     b.HasOne("Gamestore.Models.Users", "User")
-                        .WithMany()
+                        .WithMany("Games")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("PublishedBy");
@@ -303,6 +303,8 @@ namespace Gamestorev3.Server.Migrations
 
             modelBuilder.Entity("Gamestore.Models.Users", b =>
                 {
+                    b.Navigation("Games");
+
                     b.Navigation("Orders");
 
                     b.Navigation("Photos");

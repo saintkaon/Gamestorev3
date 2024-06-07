@@ -23,22 +23,24 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/gamestorev3.client",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
+            "browser": "src/main.ts",
+            "index": "src/index.html",
+            "outputPath": "dist/gamestorev3.client",
+            "polyfills": [
+              "zone.js"
+            ],
+            "scripts": [
+              "bootstrap/js/bootstrap.bundle.min.js"
+            ],
             "styles": [
               "src/styles.css",
-              "Bootstrap\\css\\bootstrap.min.css"
+              "bootstrap/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "tsConfig": "tsconfig.app.json"
           },
           "configurations": {
             "production": {

@@ -1,29 +1,62 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
   <a href="#" class="navbar-brand">Game Store</a>
 
-
-
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link active" href="#">Browse Games</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#">My Games</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Add Games</a>
-    </li>
-   
+    <ng-container *ngIf="loggedIn">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">My Games</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Add Games</a>
+      </li>
+    </ng-container>
   </ul>
 
-  <ul class="navbar-nav" id="rightnav">
-    <li class="nav-item" >
+  <ul class="navbar-nav ms-auto" id="rightnav">
+    <li class="nav-item" *ngIf="!loggedIn">
       <a class="nav-link active" href="#">Register</a>
     </li>
-    <li class="nav-item" >
-      <a class="nav-link active" href="#">Login</a>
+    <li class="nav-item dropdown" *ngIf="!loggedIn">
+      <a class="nav-link dropdown-toggle active" href="#" id="Login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Login
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Login">
+        <li>
+          <form #loginForm="ngForm" class="px-4 py-3" (ngSubmit)="login()">
+            <div class="form-group">
+              <input class="form-control" name="EmailAddress"
+                     [(ngModel)]="model.EmailAddress"
+                     placeholder="Email Address" />
+            </div>
+            <div class="form-group">
+              <input class="form-control" name="Password"
+                     [(ngModel)]="model.Password"
+                     type="password"
+                     placeholder="Password" />
+              <button type="submit" class="btn btn-primary mt-2">Sign In</button>
+            </div>
+          </form>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item dropdown" *ngIf="loggedIn">
+      <a class="nav-link dropdown-toggle active" href="#" id="Logout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Welcome User!
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Logout">
+        <li class="dropdown-item">
+          <a class="nav-link active" href="#">My profile</a>
+        </li>
+        <li class="dropdown-item">
+          <a class="nav-link active" href="#">My games</a>
+        </li>
+        <li class="dropdown-item">
+          <a class="nav-link active" (click)="logout()">Logout</a>
+        </li>
+      </ul>
     </li>
   </ul>
-
-  
 </nav>

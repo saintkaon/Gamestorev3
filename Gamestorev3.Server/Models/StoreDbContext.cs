@@ -30,6 +30,12 @@ namespace Gamestore.Models
         .HasForeignKey(od => od.OrderId)
         .OnDelete(DeleteBehavior.Restrict);
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Games>()
+                    .HasOne(g => g.User)
+                    .WithMany(u => u.Games)
+                    .HasForeignKey(g => g.UserId)
+                    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

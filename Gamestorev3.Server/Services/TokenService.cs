@@ -12,8 +12,14 @@ namespace Gamestorev3.Server.Services
         private readonly SymmetricSecurityKey _key;
         public TokenService(IConfiguration config)
         {
-            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Token"]));
-            
+            var tokenKey = config["TokenKey"];
+            if (string.IsNullOrEmpty(tokenKey))
+            {
+                throw new ArgumentException("TokenKey is missing in configuration");
+            }
+
+            _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));
+
         }
         public string CreateToken(Users User) 
         {
