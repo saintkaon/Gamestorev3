@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { AccountService } from './_services/account.service';
+import {User} from './_models/user'
 
 interface Users {
   EmailAddress: string;
@@ -20,10 +22,19 @@ export class AppComponent implements OnInit {
   model: any = {};
   loggedIn=false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private AccountService: AccountService) { }
 
   ngOnInit() {
     this.getUsers();
+    this.setCurrentUser();
+
+  }
+  setCurrentUser() {
+    const userString = localStorage.getItem('user');
+    if (!userString) return;
+    const user: User = JSON.parse(userString);
+    this.AccountService.SetCurrentUser(user);
+   
   }
 
   getUsers() {
