@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AccountService } from './_services/account.service';
-import {User} from './_models/user'
+import { User } from './_models/user'
+
 
 interface Users {
   EmailAddress: string;

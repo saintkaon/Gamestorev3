@@ -23,9 +23,9 @@
       <a class="nav-link dropdown-toggle active" href="#" id="Login" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Login
       </a>
-      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Login">
+      <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="Login">
         <li>
-          <form #loginForm="ngForm" class="px-4 py-3" (ngSubmit)="login()">
+          <form #loginForm="ngForm" class="px-10 py-8" (ngSubmit)="login()">
             <div class="form-group">
               <input class="form-control" name="EmailAddress"
                      [(ngModel)]="model.EmailAddress"
@@ -41,20 +41,28 @@
           </form>
         </li>
       </ul>
+
     </li>
-    <li class="nav-item dropdown" *ngIf="currentUser$|async">
-      <a class="nav-link dropdown-toggle active" href="#" id="Logout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+
+  </ul>
+  <ul class="navbar-nav ms-auto" id="rightnav" *ngIf="currentUser$ | async">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Become a publisher</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle active" id="Logout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Welcome User!
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Logout">
         <li class="dropdown-item">
-          <a class="nav-link active" href="#">My profile</a>
+          <a class="nav-link" href="#">My profile</a>
         </li>
         <li class="dropdown-item">
-          <a class="nav-link active" href="#">My games</a>
+          <a class="nav-link" href="#">My games</a>
         </li>
         <li class="dropdown-item">
-          <a class="nav-link active" (click)="logout()">Logout</a>
+          <a class="nav-link" (click)="logout()">Logout</a>
         </li>
       </ul>
     </li>

@@ -8,5 +8,8 @@
 }
 
 #rightnav{
-    margin-left:auto;
+    margin-left:auto
+}
+#rightnavloggedIn{
+  margin-left:auto
 }
