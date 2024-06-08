@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="card" style="width:18rem;">
+  <img class="card-img-top"/>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text"></p>
+
+    <a href="#" class="btn btn-primary btn-dark" *ngIf="currentUser$ | async">Buy</a>
+    <a href="#" class="btn btn-primary btn-dark" *ngIf="!(currentUser$ | async)">Register to buy</a>
+
+
+  </div>
+
+</div>
