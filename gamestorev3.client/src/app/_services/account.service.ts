@@ -16,11 +16,11 @@ export class AccountService {
   login(model: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', model).pipe(
       map((response: User) => {
-        const user = response;
+        var user = response;
         if (user) {
           localStorage.setItem('user', JSON.stringify(user))
           this.currentUserSource.next(user)
-          this.toast.success('welcome' + user.Nickname)
+          this.toast.success('Welcome' +" "+ user.nickname)
         }
         
       }

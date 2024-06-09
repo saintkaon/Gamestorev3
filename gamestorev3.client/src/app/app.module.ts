@@ -8,8 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
-import { ToastrModule } from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SharedModule } from './_modules/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule, ToastrModule.forRoot({
-      positionClass: 'toast-bottom-right'
-    }),  BrowserAnimationsModule
+    AppRoutingModule, FormsModule, SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

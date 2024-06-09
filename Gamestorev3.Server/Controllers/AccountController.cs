@@ -49,7 +49,7 @@ namespace Gamestorev3.Server.Controllers
             return new UserDTO
             {
                 EmailAddress = rdo.Email,
-                NickName = rdo.nickname,
+                nickname = rdo.nickname,
                 Token = _token.CreateToken(user)
             };
 
@@ -81,7 +81,7 @@ namespace Gamestorev3.Server.Controllers
                 
 
                 EmailAddress = ldo.EmailAddress,
-                NickName=user1.Nickname,
+                nickname=user1.Nickname,
                 Token = _token.CreateToken(user)
             };
         }

@@ -146,7 +146,7 @@ namespace Gamestorev3.Server.Migrations
                     b.Property<string>("EmailAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Nickname")
+                    b.Property<string>("nickname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")

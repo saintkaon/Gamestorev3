@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-primary justify-content-center">
   <a href="#" class="navbar-brand">Game Store</a>
 
   <ul class="navbar-nav">
@@ -25,13 +25,13 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-end mt-2" aria-labelledby="Login">
         <li>
-          <form #loginForm="ngForm" class="px-10 py-8" (ngSubmit)="login()">
+          <form #loginForm="ngForm" class="px-10 py-8 " (ngSubmit)="login()">
             <div class="form-group">
-              <input class="form-control" name="EmailAddress"
+              <input class="form-control dropdown-item" name="EmailAddress"
                      [(ngModel)]="model.EmailAddress"
                      placeholder="Email Address" />
             </div>
-            <div class="form-group">
+            <div class="form-group ">
               <input class="form-control" name="Password"
                      [(ngModel)]="model.Password"
                      type="password"
@@ -46,23 +46,23 @@
 
 
   </ul>
-  <ul class="navbar-nav ms-auto" id="rightnav" *ngIf="currentUser$ | async">
+  <ul class="navbar-nav ms-auto" id="rightnav" *ngIf="currentUser$ | async as user">
     <li class="nav-item">
       <a class="nav-link active" href="#">Become a publisher</a>
     </li>
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle active" id="Logout" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Welcome User!
+        Welcome {{user.nickname}}
       </a>
       <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="Logout">
-        <li class="dropdown-item">
-          <a class="nav-link" href="#">My profile</a>
+        <li >
+          <a class="dropdown-item" href="#">My profile</a>
         </li>
-        <li class="dropdown-item">
-          <a class="nav-link" href="#">My games</a>
+        <li >
+          <a class="dropdown-item" href="#">My games</a>
         </li>
-        <li class="dropdown-item">
-          <a class="nav-link" (click)="logout()">Logout</a>
+        <li>
+          <a class="dropdown-item" (click)="logout()">Logout</a>
         </li>
       </ul>
     </li>

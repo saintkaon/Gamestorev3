@@ -39,6 +39,7 @@
             "styles": [
               "src/styles.css",
               "bootstrap/css/bootstrap.min.css",
+              "node_modules/bootswatch/dist/pulse/bootstrap.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
             "tsConfig": "tsconfig.app.json"
