@@ -140,7 +140,7 @@ namespace Gamestorev3.Server.Migrations
                 {
                     PhotoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PhotoPath = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Photo = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     GameId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

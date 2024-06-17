@@ -1,5 +1,6 @@
 ﻿using Gamestore.Models;
 using Gamestorev3.Server.Interfaces;
+using Gamestorev3.Server.Repository;
 using Gamestorev3.Server.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +14,9 @@ namespace Gamestorev3.Server.Extensions
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPublisherRepository, PublisherRepository>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             return services;
         }
     }

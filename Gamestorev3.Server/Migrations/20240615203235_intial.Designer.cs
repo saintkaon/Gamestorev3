@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gamestorev3.Server.Migrations
 {
     [DbContext(typeof(StoreDbContext))]
-    [Migration("20240605104235_intial")]
+    [Migration("20240615203235_intial")]
     partial class intial
     {
         /// <inheritdoc />
@@ -36,8 +36,8 @@ namespace Gamestorev3.Server.Migrations
                     b.Property<int>("GameId")
                         .HasColumnType("int");
 
-                    b.Property<string>("PhotoPath")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<byte[]>("Photo")
+                        .HasColumnType("varbinary(max)");
 
                     b.HasKey("PhotoId");
 
@@ -149,7 +149,7 @@ namespace Gamestorev3.Server.Migrations
                     b.Property<string>("EmailAddress")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nickname")
+                    b.Property<string>("Nickname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
