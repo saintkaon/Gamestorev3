@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Gamestore.Models;
 using Gamestorev3.Server.DTOs;
+using Gamestorev3.Server.Extensions;
 using Gamestorev3.Server.Interfaces;
 using Gamestorev3.Server.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,7 @@ namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/")]
-    public class PublisherController : Controller
+    public class PublisherController : ApiController
     {
         private readonly StoreDbContext _context;
         private readonly ITokenService _token;

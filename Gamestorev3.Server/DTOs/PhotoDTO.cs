@@ -4,6 +4,7 @@
     {
         public byte[] Photo { get; set; }
         public string Title { get; set; }
+        public bool isMain { get; set; }
         public UserDTO User { get; set; }
     }
 }

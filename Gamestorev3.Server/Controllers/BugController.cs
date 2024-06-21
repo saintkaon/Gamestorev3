@@ -1,11 +1,12 @@
 ﻿using Gamestore.Models;
+using Gamestorev3.Server.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BugController : Controller
+    public class BugController : ApiController
     {
         private readonly StoreDbContext _context;
 

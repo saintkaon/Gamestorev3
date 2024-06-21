@@ -1,4 +1,5 @@
 ﻿using Gamestore.Models;
+using Gamestorev3.Server.Extensions;
 using Gamestorev3.Server.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,7 +8,7 @@ namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController: Controller
+    public class UsersController: ApiController
     {
         private readonly StoreDbContext _context;
         private readonly IUserRepository _userrepo;
