@@ -6,7 +6,7 @@ namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class BugController : ApiController
+    public class BugController : BaseController
     {
         private readonly StoreDbContext _context;
 

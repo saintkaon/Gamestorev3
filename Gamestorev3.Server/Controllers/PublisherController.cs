@@ -13,7 +13,7 @@ namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/")]
-    public class PublisherController : ApiController
+    public class PublisherController : BaseController
     {
         private readonly StoreDbContext _context;
         private readonly ITokenService _token;

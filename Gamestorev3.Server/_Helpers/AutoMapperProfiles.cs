@@ -12,8 +12,8 @@ namespace Gamestorev3.Server._Helpers
             CreateMap<Users, UserDTO>();
             CreateMap<Games, GameDTO>();
             CreateMap<Publisher, PublisherDTO>();
-            CreateMap<GamePhotos, PhotoDTO>();
-            CreateMap<UserPhotos, PhotoDTO>();
+            CreateMap<GamePhotos, GamePhotoDTO>();
+            CreateMap<UserPhotos, UserPhotoDTO>();
 
         }
     }

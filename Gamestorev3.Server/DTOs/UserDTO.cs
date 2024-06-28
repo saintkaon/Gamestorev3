@@ -3,6 +3,7 @@
     public class UserDTO
     {
         public string EmailAddress { get; set; }
+        public string MainPhoto { get; set; }
         public string nickname { get; set; }
         public string Token { get; set; }
     }

@@ -1,13 +1,10 @@
-<div class="card" style="width:18rem;">
-  <img class="card-img-top" alt="Game picture"/>
-  <div class="card-body">
-    <h5 class="card-title"></h5>
-    <p class="card-text"></p>
-
-    <a href="#" class="btn btn-primary btn-dark" *ngIf="currentUser$ | async">Buy</a>
-    <a href="#" class="btn btn-primary btn-dark" *ngIf="!(currentUser$ | async)">Register to buy</a>
-
-
+<div class="container mt-5" style="width:18rem;">
+  <div *ngIf="gamez.length > 0">
+    <div *ngFor="let game of gamez">
+        <app-game-card [game]="game"></app-game-card>
+    </div>
   </div>
-
+  <h1 *ngIf="gamez.length === 0" class="justify-content-center">
+    No Games added yet
+  </h1>
 </div>

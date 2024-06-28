@@ -9,7 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 namespace Gamestorev3.Server.Controllers
 {
 
-    public class GameController : ApiController
+    public class GameController : BaseController
     {
         private readonly StoreDbContext _context;
         private readonly IGameRepository _gamerepo;
@@ -55,4 +55,4 @@ namespace Gamestorev3.Server.Controllers
     }
 
     }
-}
+

@@ -13,5 +13,21 @@ namespace Gamestore.Models
         [ForeignKey("GameId")]
         public Games Games { get; set; }
 
+        public static string GetPhoto(byte[] data)
+        {
+            string finalresult;
+            if (data == null)
+            {
+                return "No Image";
+
+            }
+            else
+            {
+                return finalresult = Convert.ToBase64String(data);
+
+            }
+
+        }
+
     }
 }

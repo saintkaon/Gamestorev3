@@ -14,7 +14,7 @@ namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class AccountController : ApiController
+    public class AccountController : BaseController
     {
 
         private readonly StoreDbContext _context;

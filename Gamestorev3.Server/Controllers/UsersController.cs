@@ -8,7 +8,7 @@ namespace Gamestorev3.Server.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsersController: ApiController
+    public class UsersController: BaseController
     {
         private readonly StoreDbContext _context;
         private readonly IUserRepository _userrepo;
