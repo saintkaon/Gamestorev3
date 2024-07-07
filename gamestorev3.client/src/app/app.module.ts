@@ -12,6 +12,8 @@ import { SharedModule } from './_modules/shared/shared.module';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { GameCardComponent } from './home/game-card/game-card.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { ProfileComponent } from './nav-bar/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { GameCardComponent } from './home/game-card/game-card.component';
     RegisterComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    GameCardComponent
+    GameCardComponent,
+    TextInputComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

@@ -135,7 +135,7 @@ namespace Gamestorev3.Server.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Photos");
+                    b.ToTable("UserPhotos");
                 });
 
             modelBuilder.Entity("Gamestore.Models.Users", b =>
@@ -202,7 +202,7 @@ namespace Gamestorev3.Server.Migrations
             modelBuilder.Entity("Gamestore.Models.GamePhotos", b =>
                 {
                     b.HasOne("Gamestore.Models.Games", "Games")
-                        .WithMany("Photos")
+                        .WithMany("UserPhotos")
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -262,7 +262,7 @@ namespace Gamestorev3.Server.Migrations
             modelBuilder.Entity("Gamestore.Models.UserPhotos", b =>
                 {
                     b.HasOne("Gamestore.Models.Users", "User")
-                        .WithMany("Photos")
+                        .WithMany("UserPhotos")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -296,7 +296,7 @@ namespace Gamestorev3.Server.Migrations
                 {
                     b.Navigation("OrderDetails");
 
-                    b.Navigation("Photos");
+                    b.Navigation("UserPhotos");
                 });
 
             modelBuilder.Entity("Gamestore.Models.Orders", b =>
@@ -310,7 +310,7 @@ namespace Gamestorev3.Server.Migrations
 
                     b.Navigation("Orders");
 
-                    b.Navigation("Photos");
+                    b.Navigation("UserPhotos");
                 });
 
             modelBuilder.Entity("Gamestorev3.Server.Models.Publisher", b =>

@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AccountService } from '../_services/account.service';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   model: any = {}
-  registerForm: FormGroup = new FormGroup({});
-  constructor() { }
+  registerForm: FormGroup;
+  validationErrors: string[] | undefined;
+  constructor(private fb: FormBuilder, private accountService: AccountService,private router: Router,private toastr:ToastrService) {
+    this.registerForm = new FormGroup({});
+  }
 
   
 
@@ -18,12 +24,13 @@ export class RegisterComponent implements OnInit {
     this.intializeForm();
   }
   intializeForm() {
-    this.registerForm = new FormGroup({
-      email: new FormControl('', Validators.email),
-      password: new FormControl('', [Validators.minLength(4), Validators.maxLength(12)]),
-      confirmpassword: new FormControl('', [Validators.required, this.validatePassword('password')]),
-      nickname: new FormControl
-    })
+    this.registerForm = this.fb.group({
+      email: ['', [Validators.email, Validators.required]],
+      nickname: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]],
+      confirmpassword: ['', [Validators.required, this.validatePassword('password')]],
+
+    });
     this.registerForm.controls['password'].valueChanges.subscribe({
       next: () => this.registerForm.controls['confirmpassword'].updateValueAndValidity()
     })
@@ -36,7 +43,20 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  register() { }
+  register() {
+    const values = { ...this.registerForm.value }
+    this.accountService.register(values).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/home')
+       
+},
+      error: error=> {
+        this.validationErrors = error
+        
+       
+      }
+    })
+  }
 
 
 

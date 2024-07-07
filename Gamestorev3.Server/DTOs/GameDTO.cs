@@ -1,4 +1,5 @@
 ﻿using Gamestore.Models;
+using System.Runtime.CompilerServices;
 
 namespace Gamestorev3.Server.DTOs
 {
@@ -10,7 +11,5 @@ namespace Gamestorev3.Server.DTOs
         public bool IsMain { get; set; }
         public float Price { get; set; }
         public DateOnly ReleaseDate { get; set; }
-
-      
     }
 }

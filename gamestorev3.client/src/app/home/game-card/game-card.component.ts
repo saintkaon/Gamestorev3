@@ -7,7 +7,7 @@ import { Games } from '../../_models/games';
   styleUrl: './game-card.component.css'
 })
 export class GameCardComponent {
-  @Input() games: Games | undefined;
+  @Input() game: Games | undefined;
   construct() {
 
   }

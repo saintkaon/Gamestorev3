@@ -11,7 +11,7 @@ namespace Gamestore.Models
        public DbSet<Users> Users { get; set; }
        public DbSet<Games> Games { get; set; }
        public DbSet<GamePhotos> GamePhotos { get; set; }
-       public DbSet<UserPhotos> Photos { get; set; }
+       public DbSet<UserPhotos> UserPhotos { get; set; }
        public DbSet<Orders> Orders { get; set; }
        public DbSet<OrderDetails> OrderDetails { get; set; }
        public DbSet<Publisher> Publisher { get; set; }

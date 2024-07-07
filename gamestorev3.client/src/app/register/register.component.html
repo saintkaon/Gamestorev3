@@ -1,23 +1,15 @@
-<form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
-  <h2 class="text-center text-primary">Sign up</h2>
-  <div class="mb-3">
-
-    <input class="form-control" name="Emailaddress" formControlName="email" [class.is-invalid]="registerForm.get('email')?.errors&registerform.get('email)?.touched'" placeholder="Email Address" />
-    <div class="invalid-feedback">Please enter a valid E-mail adddress</div>
-  </div>
-  <div class="mb-3">
-    <input class="form-control" name="Nickname" formControlName="nickname" placeholder="Nickname" />
-  </div>
-  <div class="mb-3">
-    <input class="form-control" name="Password" type="password" formControlName="password" placeholder="Password" />
-  </div>
-  <div class="mb-3">
-    <input class="form-control" name="CPassword" type="password" formControlName="confirmpassword" placeholder="Confirm Password" />
-  </div>
-
-  <div class="text-center">
-    <button class="btn btn-success me-2" type="submit">Register</button>
-
-  </div>
-
+<form class="mt-2" [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+    <h2 class="text-center text-primary">Register</h2>
+    <hr />
+    <div>
+        <app-text-input [formControlName]="'email'" [label]="'Email address'"></app-text-input>
+    </div>
+    
+    <app-text-input [formControlName]="'nickname'" [label]="'Nickname'"></app-text-input>
+    <app-text-input [formControlName]="'password'" [label]="'Password'" [type]="'password'"></app-text-input>
+    <app-text-input [formControlName]="'confirmpassword'" [label]="'Confirm Password'" [type]="'password'"></app-text-input>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary mt-3">Register</button>
+    </div>
+    
 </form>

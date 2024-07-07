@@ -2,7 +2,7 @@
 {
     public class GamePhotoDTO
     {
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
 
         public string Title { get; set; }
         public bool isMain { get; set; }

@@ -66,7 +66,7 @@ namespace Gamestorev3.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Photos",
+                name: "UserPhotos",
                 columns: table => new
                 {
                     PhotoId = table.Column<int>(type: "int", nullable: false)
@@ -211,7 +211,7 @@ namespace Gamestorev3.Server.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Photos_UserId",
-                table: "Photos",
+                table: "UserPhotos",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -233,7 +233,7 @@ namespace Gamestorev3.Server.Migrations
                 name: "OrderDetails");
 
             migrationBuilder.DropTable(
-                name: "Photos");
+                name: "UserPhotos");
 
             migrationBuilder.DropTable(
                 name: "Games");

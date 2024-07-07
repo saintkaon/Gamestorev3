@@ -1,4 +1,5 @@
-﻿using Gamestore.Models;
+﻿using AutoMapper;
+using Gamestore.Models;
 using Gamestorev3.Server.DTOs;
 using Gamestorev3.Server.Extensions;
 using Gamestorev3.Server.Interfaces;
@@ -19,11 +20,12 @@ namespace Gamestorev3.Server.Controllers
 
         private readonly StoreDbContext _context;
         private readonly ITokenService _token;
-        
+        private readonly IMapper _mapper;
 
-        public AccountController(StoreDbContext context, ITokenService tokenService)
+        public AccountController(StoreDbContext context, ITokenService tokenService, IMapper mapper)
         {
             _token= tokenService;
+            _mapper = mapper;
             _context = context;
 
         }
@@ -35,14 +37,14 @@ namespace Gamestorev3.Server.Controllers
             if (await IsExist(rdo.Email)) return BadRequest("Username Exists");
             
                 using var hash = new HMACSHA256();
-                var user = new Users
-                {
-                    EmailAddress = rdo.Email,
-                    PasswordHash = hash.ComputeHash(Encoding.UTF8.GetBytes(rdo.Password)),
-                    PasswordSalt = hash.Key,
-                    Nickname = rdo.nickname
+            var user = _mapper.Map<Users>(rdo);
+          
+                user.EmailAddress = rdo.Email;
+                user.PasswordHash = hash.ComputeHash(Encoding.UTF8.GetBytes(rdo.Password));
+                user.PasswordSalt = hash.Key;
+                user.Nickname = rdo.nickname;
 
-                };
+               
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
 
